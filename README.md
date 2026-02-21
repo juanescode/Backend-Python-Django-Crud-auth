@@ -118,5 +118,5 @@ Variables de entorno en producción:
 ## Credenciales de Prueba
 
 Usuario: `testuser`  
-Contraseña: `test1234`
+Contraseña: `test12345`
 
