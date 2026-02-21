@@ -108,11 +108,11 @@ backend/
 
 ## Deployment
 
-Desplegado en Render: https://backend-python-django-crud-auth.onrender.com
+Desplegado en Koyeb: https://equal-amalia-entrevista-8a244fe1.koyeb.app
 
 Variables de entorno en producción:
 - `DEBUG=False`
-- `ALLOWED_HOSTS=backend-python-django-crud-auth.onrender.com`
+- `ALLOWED_HOSTS=equal-amalia-entrevista-8a244fe1.koyeb.app`
 - `CORS_ALLOWED_ORIGINS=https://entrevista-tecnica.netlify.app`
 
 ## Credenciales de Prueba
