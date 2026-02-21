@@ -127,7 +127,7 @@
   - Endpoints de lectura (GET): < 100ms
   - Endpoints de escritura (POST/PUT/PATCH): < 200ms
   - Autenticación (login/register): < 300ms
-- **Medición**: Monitoreo de Render con métricas de latencia
+- **Medición**: Monitoreo de Koyeb con métricas de latencia
 - **Optimizaciones**: Uso de índices en base de datos, queries optimizadas
 
 **RNF-06: Escalabilidad Horizontal**
@@ -148,9 +148,9 @@
 
 **RNF-08: Uptime del Sistema**
 - **Descripción**: Sistema debe estar disponible 99% del tiempo
-- **Deployment**: Render con health checks automáticos
+- **Deployment**: Koyeb con health checks automáticos
 - **Base de Datos**: Neon.tech con backups automáticos
-- **Medición**: Monitoreo de uptime en Render dashboard
+- **Medición**: Monitoreo de uptime en Koyeb dashboard
 
 **RNF-09: Manejo de Errores**
 - **Descripción**: Sistema debe manejar errores de forma predecible y segura
@@ -349,7 +349,7 @@ Task
 | PATCH | `/api/tasks/{id}/` | Actualización parcial | Sí |
 | DELETE | `/api/tasks/{id}/` | Eliminar tarea | Sí |
 
-**Base URL Producción**: `https://backend-python-django-crud-auth.onrender.com/api/`
+**Base URL Producción**: `https://equal-amalia-entrevista-8a244fe1.koyeb.app/api/`
 
 ## 6. Autenticación y Seguridad
 
@@ -424,11 +424,12 @@ Task
 
 ## 9. Consideraciones de Deployment
 
-### Render
-- Build command: `./build.sh`
-- Start command: `gunicorn config.wsgi:application`
-- Auto-deploy habilitado en branch `fix`
-- Health check endpoint: `/api/tasks/` (requiere auth)
+### Koyeb
+- Build command: `pip install -r requirements.txt && python manage.py migrate && python manage.py collectstatic --no-input`
+- Run command: `gunicorn config.wsgi:application --bind 0.0.0.0:$PORT`
+- Auto-deploy habilitado desde GitHub
+- Health check: Automático en puerto 8000
+- Instance: Free tier (512MB RAM, siempre activo)
 
 ### Base de Datos
 - Neon PostgreSQL pooling (serverless)
